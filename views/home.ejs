@@ -1,0 +1,35 @@
+<%- include("partials/header"); -%>
+  <h1>Home</h1>
+  <p>
+    <%= firstPara %>
+  </p>
+  <% if( newcontent.length === 0) { %>
+  <%  for (let j = 0; j < defaultcontent.length; j++){ %>
+
+    <h1>
+      <%= defaultcontent[j].Title %>
+    </h1>
+    <p>
+      <%= defaultcontent[j].Post.substring(0, 100) + " ..."%>
+        <a href="/posts/<%= defaultcontent[j].Title %>">Read More</a>
+    </p>
+
+  <% } %>
+  <% } else  {  %>
+
+  <% for(let i=0; i<newcontent.length; i++) { %>
+
+    <h1>
+      <%= newcontent[i].titlePost.Title %>
+    </h1>
+    <p>
+      <%= newcontent[i].titlePost.Post.substring(0, 100) + " ..."%>
+        <a href="/posts/<%= newcontent[i]._id %>">Read More</a>
+    </p>
+
+
+    <% } %>
+    <% } %>
+
+
+      <%- include("partials/footer"); -%>
